@@ -1,21 +1,28 @@
 import { motion } from "framer-motion";
 import { useLang } from "./LanguageContext";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const { lang } = useLang();
 
   return (
-    <section className="relative overflow-hidden bg-hero-gradient-subtle py-20 md:py-32">
-      {/* Decorative circles */}
-      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/5 blur-3xl" />
+    <section className="relative overflow-hidden min-h-[70vh] flex items-center">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-foreground/60" />
+      </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 py-20 md:py-32">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 font-body font-medium"
+          className="text-sm uppercase tracking-[0.2em] text-primary-foreground/70 mb-4 font-body font-medium"
         >
           {lang === "ru" ? "Мы обеспечиваем" : "Ми забезпечуємо"}
         </motion.p>
@@ -23,15 +30,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-primary-foreground"
         >
-          <span className="text-gradient">
-            {lang === "ru"
-              ? "КАПИТАЛЬНЫЙ ПОДХОД"
-              : "КАПІТАЛЬНИЙ ПІДХІД"}
-          </span>
+          {lang === "ru"
+            ? "КАПИТАЛЬНЫЙ ПОДХОД"
+            : "КАПІТАЛЬНИЙ ПІДХІД"}
           <br />
-          <span className="text-foreground">
+          <span className="text-primary-foreground/90">
             {lang === "ru" ? "К ВАШЕМУ КОМФОРТУ" : "ДО ВАШОГО КОМФОРТУ"}
           </span>
         </motion.h1>
@@ -39,7 +44,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-muted-foreground max-w-xl mx-auto mb-8"
+          className="text-lg text-primary-foreground/80 max-w-xl mx-auto mb-8"
         >
           {lang === "ru"
             ? "Ремонт, перетяжка и изготовление мебели в Киеве с 2000 года"

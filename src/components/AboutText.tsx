@@ -5,7 +5,7 @@ const AboutText = () => {
   const { lang } = useLang();
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" id="about">
       <div className="container mx-auto px-4 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

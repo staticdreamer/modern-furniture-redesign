@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useLang } from "./LanguageContext";
-import service01 from "@/assets/service-01.jpg";
-import service02 from "@/assets/service-02.jpg";
-import service03 from "@/assets/service-03.jpg";
-import service04 from "@/assets/service-04.jpg";
+import service01 from "@/assets/service-01-new.jpg";
+import service02 from "@/assets/service-02-new.jpg";
+import service03 from "@/assets/service-03-new.jpg";
+import service04 from "@/assets/service-04-new.jpg";
 
 const servicesData = [
   {
