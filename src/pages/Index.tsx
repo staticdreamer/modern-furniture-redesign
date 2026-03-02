@@ -6,6 +6,7 @@ import ServicesList from "@/components/ServicesList";
 import Advantages from "@/components/Advantages";
 import Gallery from "@/components/Gallery";
 import AboutText from "@/components/AboutText";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
           <Advantages />
           <Gallery />
           <AboutText />
+          <ContactForm />
         </main>
         <Footer />
       </div>
