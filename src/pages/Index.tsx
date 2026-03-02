@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import AboutText from "@/components/AboutText";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
           <ContactForm />
         </main>
         <Footer />
+        <ScrollToTop />
       </div>
     </LanguageProvider>
   );
