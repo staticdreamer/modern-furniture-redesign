@@ -25,23 +25,6 @@ const Gallery = () => {
           {lang === "ru" ? "Галерея" : "Галерея"}
         </motion.h2>
 
-        {/* Category labels */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          {galleryItems.map((item, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center font-display font-semibold text-primary text-lg underline underline-offset-4 decoration-primary/40"
-            >
-              {lang === "ru" ? item.ru : item.ua}
-            </motion.p>
-          ))}
-        </div>
-
-        {/* Gallery images — full visible, no crop */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {galleryItems.map((item, i) => (
             <motion.div
@@ -58,8 +41,11 @@ const Gallery = () => {
                 className="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent pointer-events-none" />
+              {/* Gradient overlay with title */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent pointer-events-none" />
+              <p className="absolute bottom-4 left-0 right-0 text-center font-display font-semibold text-primary-foreground text-lg drop-shadow-md pointer-events-none">
+                {lang === "ru" ? item.ru : item.ua}
+              </p>
             </motion.div>
           ))}
         </div>
