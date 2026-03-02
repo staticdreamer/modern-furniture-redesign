@@ -70,11 +70,25 @@ const Footer = () => {
                 {lang === "ru" ? "Пн-Сб: 9:00 - 18:00" : "Пн-Сб: 9:00 - 18:00"}
               </span>
             </div>
-          </div>
+        </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-xs opacity-50">
-          © {new Date().getFullYear()}{" "}
+        {/* Google Map */}
+        <div className="mt-10 rounded-xl overflow-hidden border border-primary-foreground/10">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.5!2d30.6508!3d50.4234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5e2b3f0ed93%3A0x8c8f2c3b4a5d6e7f!2z0LLRg9C70LjRhtGPINCf0YDQuNC60L7Qu9GW0LnQvdCwLCAyMSwg0JrQuNGX0LI!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua"
+            width="100%"
+            height="250"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={lang === "ru" ? "Карта" : "Карта"}
+          />
+        </div>
+
+        <div className="border-t border-primary-foreground/10 mt-8 pt-6 text-center text-xs opacity-50">
+          © 2000–{new Date().getFullYear()}{" "}
           {lang === "ru" ? 'Мебельная мастерская "Виктория"' : 'Меблева майстерня "Вікторія"'}
         </div>
       </div>
