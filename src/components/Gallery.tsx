@@ -20,11 +20,28 @@ const Gallery = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-display font-bold text-center mb-12"
+          className="text-3xl md:text-4xl font-display font-bold text-center mb-4"
         >
           {lang === "ru" ? "Галерея" : "Галерея"}
         </motion.h2>
 
+        {/* Category labels */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          {galleryItems.map((item, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center font-display font-semibold text-primary text-lg underline underline-offset-4 decoration-primary/40"
+            >
+              {lang === "ru" ? item.ru : item.ua}
+            </motion.p>
+          ))}
+        </div>
+
+        {/* Gallery images — full visible, no crop */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {galleryItems.map((item, i) => (
             <motion.div
@@ -35,22 +52,34 @@ const Gallery = () => {
               transition={{ delay: i * 0.1 }}
               className="group relative overflow-hidden rounded-2xl shadow-card"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.img}
-                  alt={lang === "ru" ? item.ru : item.ua}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-primary-foreground font-display font-semibold text-lg">
-                  {lang === "ru" ? item.ru : item.ua}
-                </p>
-              </div>
+              <img
+                src={item.img}
+                alt={lang === "ru" ? item.ru : item.ua}
+                className="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent pointer-events-none" />
             </motion.div>
           ))}
         </div>
+
+        {/* "Далі" button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-10"
+        >
+          <a
+            href="https://mebel-remont.in.ua/galereia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-lg hover:bg-primary/90 transition-colors"
+          >
+            {lang === "ru" ? "Далее" : "Далі"}
+          </a>
+        </motion.div>
       </div>
     </section>
   );
