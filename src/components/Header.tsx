@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLang } from "./LanguageContext";
 import logo from "@/assets/logo.png";
 import { Phone, Mail, MapPin, Clock, Menu, X } from "lucide-react";
@@ -12,6 +13,7 @@ const Header = () => {
     { href: "#advantages", labelRu: "Преимущества", labelUa: "Переваги" },
     { href: "#gallery", labelRu: "Галерея", labelUa: "Галерея" },
     { href: "#about", labelRu: "О компании", labelUa: "Про компанію" },
+    { href: "/otzyvy", labelRu: "Отзывы", labelUa: "Відгуки" },
     { href: "#contacts", labelRu: "Контакты", labelUa: "Контакти" },
   ];
 
@@ -72,15 +74,25 @@ const Header = () => {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {lang === "ru" ? link.labelRu : link.labelUa}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </a>
+              )
+            )}
           </nav>
 
           <div className="flex items-center gap-3">
@@ -121,16 +133,27 @@ const Header = () => {
         {/* Mobile nav */}
         {mobileMenuOpen && (
           <nav className="lg:hidden border-t bg-card px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {lang === "ru" ? link.labelRu : link.labelUa}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </a>
+              )
+            )}
           </nav>
         )}
       </div>
