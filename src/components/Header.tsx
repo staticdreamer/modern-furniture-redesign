@@ -133,16 +133,27 @@ const Header = () => {
         {/* Mobile nav */}
         {mobileMenuOpen && (
           <nav className="lg:hidden border-t bg-card px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {lang === "ru" ? link.labelRu : link.labelUa}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ru" ? link.labelRu : link.labelUa}
+                </a>
+              )
+            )}
           </nav>
         )}
       </div>
