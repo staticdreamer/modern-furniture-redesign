@@ -12,6 +12,7 @@ const Header = () => {
     { href: "#advantages", labelRu: "Преимущества", labelUa: "Переваги" },
     { href: "#gallery", labelRu: "Галерея", labelUa: "Галерея" },
     { href: "#about", labelRu: "О компании", labelUa: "Про компанію" },
+    { href: "/otzyvy", labelRu: "Отзывы", labelUa: "Відгуки" },
     { href: "#contacts", labelRu: "Контакты", labelUa: "Контакти" },
   ];
 
