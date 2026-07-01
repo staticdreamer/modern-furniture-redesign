@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useLang } from "./LanguageContext";
 import gal4 from "@/assets/gal4.jpg";
 import gal5 from "@/assets/gal5.jpg";
