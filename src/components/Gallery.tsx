@@ -58,14 +58,12 @@ const Gallery = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-10"
         >
-          <a
-            href="https://mebel-remont.in.ua/galereia"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/galereia"
             className="inline-block px-12 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-lg hover:bg-primary/90 transition-colors"
           >
             {lang === "ru" ? "Далее" : "Далі"}
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
