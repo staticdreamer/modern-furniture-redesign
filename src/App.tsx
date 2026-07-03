@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Reviews from "./pages/Reviews";
 import Galereia from "./pages/Galereia";
 import VcladyshiDliaKomodov from "./pages/VcladyshiDliaKomodov";
+import Thanks from "./pages/Thanks";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
