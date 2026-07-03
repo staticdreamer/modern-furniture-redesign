@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Reviews from "./pages/Reviews";
 import Galereia from "./pages/Galereia";
 import VcladyshiDliaKomodov from "./pages/VcladyshiDliaKomodov";
+import Thanks from "./pages/Thanks";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/otzyvy" element={<Reviews />} />
           <Route path="/galereia" element={<Galereia />} />
           <Route path="/vcladyshi-dlia-komodov" element={<VcladyshiDliaKomodov />} />
+          <Route path="/thanks-page" element={<Thanks />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
